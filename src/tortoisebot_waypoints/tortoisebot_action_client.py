@@ -8,14 +8,17 @@ def feedback_cb(msg):
  print ('Feedback received:', msg)
 
 def call_server():
+    # Read goal parameters
+    goal_x = rospy.get_param("~goal_x", 0.0)
+    goal_y = rospy.get_param("~goal_y", 0.0)
 
     client = actionlib.SimpleActionClient('tortoisebot_as', WaypointActionAction)
 
     client.wait_for_server()
 
     goal = WaypointActionGoal()
-    goal.position.x = 0.0
-    goal.position.y = 0.2
+    goal.position.x = goal_x
+    goal.position.y = goal_y
     goal.position.z = 0.0
 
     client.send_goal(goal, feedback_cb=feedback_cb)
