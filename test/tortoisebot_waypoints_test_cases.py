@@ -52,7 +52,7 @@ class TestWaypointActionClass(unittest.TestCase):
     def test_correct_position(self):
         print ("Current position:")
         print(str(self.current_x) + " ; " + str(self.current_y))
-        time.sleep(10)
+        time.sleep(7)
         
         msg = rospy.wait_for_message("/odom", Odometry, timeout=2)
 
@@ -77,7 +77,7 @@ class TestWaypointActionClass(unittest.TestCase):
     def test_correct_rotation(self):
         
         print ("Current Orientation:",self.current_orientation )
-        time.sleep(10)
+        time.sleep(7)
         
         #rospy.wait_for_message("/odom", Odometry, timeout=2)
         self.final_yaw = self.euler_to_quaternion(self.current_orientation)
