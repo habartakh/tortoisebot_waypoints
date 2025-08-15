@@ -21,12 +21,9 @@ The `waypoints_test.test` file does the following:
 
 In order to test different cases, it is necessary to modify the desired goal position during tests. 
 
-Here is how to do so:
+Here is how to do so:   
 
-1 - Open `waypoints_test.test` file, then change the arguments of the node to the desired position [X, Y]. 
-2 - Open the `tortoisebot_waypoints_test_cases.py` file, then change the values of the global variables`goal_x`, `goal_y` and `goal_yaw` accordingly.
-
-*To compute the yaw, use the formula yaw = arctan(y/x) or listen to the topic `/odom` topic to get the corresponding quaternion.*
+Open `waypoints_test.test` file, then change the arguments of the test node to the desired goal position [X, Y] and yaw.   
 
 Then, build and source your workspace.
 
@@ -39,6 +36,17 @@ Then run the tests using the following command:
 ```
 rostest tortoisebot_waypoints waypoints_test.test --reuse-master
 ```
+
+### Test successful conditions 
+Here are some of the goal values that the robot successfully reaches:
+- X = 0.0 & Y = 0.5 & Yaw = 1.57  
+
+- X = 0.4 & Y = 0.4 & Yaw = 0.78  
+
+- X = -0.4 & Y = -0.4 & Yaw = -2.35  
+
+- X = -0.2 & Y = 0.0 & Yaw = 3.14  
+
 
 
 
