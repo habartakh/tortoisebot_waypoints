@@ -35,18 +35,13 @@ class TestWaypointActionClass(unittest.TestCase):
         self.current_x = 0 
         self.current_y = 0
         
-        self.init_yaw = 0
         self.final_yaw = 0
-
-        self.init_x = 0 
         self.final_x = 0
-        self.init_y = 0 
         self.final_y = 0
 
         # Call the action server directly from test script to avoid timing issues:
         # The timeout introduced previously (7s)in test functions is chosen randomly
         # And sometimes the tests start before the robot completes its trajectory
-        
         self.client = actionlib.SimpleActionClient('tortoisebot_as', WaypointActionAction)
         self.client.wait_for_server()
         self.success = False
