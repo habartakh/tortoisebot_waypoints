@@ -1,8 +1,10 @@
 <launch>
   <node pkg="tortoisebot_waypoints" type="reset_world_client.py" name="reset_world_client" />
-  <node pkg="tortoisebot_waypoints" type="tortoisebot_action_client.py" name="tortoisebot_action_client">
-    <param name="goal_x" value="0.0" />
-    <param name="goal_y" value="0.2" />
-  </node>
-  <test test-name="tortoisebot_waypoints_test_cases" pkg="tortoisebot_waypoints" type="tortoisebot_waypoints_test_cases.py" />
+  <test test-name="tortoisebot_waypoints_test_cases" pkg="tortoisebot_waypoints" type="tortoisebot_waypoints_test_cases.py">
+    <param name="goal_x" value="-0.4" />
+    <param name="goal_y" value="-0.4" />
+    <param name="goal_yaw" value="-2.35" />
+    <param name="precision_xy" value="0.1" />
+    <param name="precision_yaw" value="0.2" />
+  </test>
 </launch>
