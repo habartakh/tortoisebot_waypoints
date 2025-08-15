@@ -45,24 +45,20 @@ Here are some of the goal values that the robot successfully reaches:
 
 - X = -0.4 & Y = -0.4 & Yaw = -2.35  
 
-- X = -0.2 & Y = 0.0 & Yaw = 3.14  
-
-
-
 
 ### Test failing conditions
 
-#### Case 1: X = -0.2 & Y = 0.0  & Yaw = 3.14
+#### Case 1: X = -0.4 & Y = 0.0  & Yaw = 3.14
 
 The robot is stuck trying to correct its orientation. Due to the absence of angle normalization and the strict correction angle threshold (2 degrees),
-The robot angle fluctualtes between ~pi and ~0 values and cannot stabilize. 
+The robot angle fluctualtes between pi and -pi values and cannot stabilize. 
 The test node then times out and the tests end up failing.
 
 #### Case 2: X = none / Y = none / Yaw = none 
 
-If any of the goal variables does not correspond to float values, the tests end up failing since they expect numerical values.
+If any of the goal variables does not correspond to float values (e.g: string), the tests end up failing since they expect numerical values.
 
-#### Case 3: X = 1000 / Y = 1000.0  
+#### Case 3: X = 100 / Y = 100 
 
 If the goal values are too big or out of the scope of the environment, the robot crashes into the obtacles or the wall while trying to go towards the goal.
 
