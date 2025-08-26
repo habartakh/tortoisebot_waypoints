@@ -91,14 +91,14 @@ class WaypointActionClass(object):
                 rospy.loginfo("fix yaw")
                 self._state = 'fix yaw'
                 twist_msg = Twist()
-                twist_msg.angular.z = 0.65 if err_yaw > 0 else -0.65
+                twist_msg.angular.z = 0.45 if err_yaw > 0 else -0.45
                 self._pub_cmd_vel.publish(twist_msg)
             else:
                 # go to point
                 rospy.loginfo("go to point")
                 self._state = 'go to point'
                 twist_msg = Twist()
-                twist_msg.linear.x = 0.6
+                twist_msg.linear.x = 0.3
                 twist_msg.angular.z = 0
                 # twist_msg.angular.z = 0.1 if err_yaw > 0 else -0.1
                 self._pub_cmd_vel.publish(twist_msg)
